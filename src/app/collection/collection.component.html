@@ -1,0 +1,43 @@
+
+<div id="showcurdirect">{{showcurdirect}}</div>
+<br>
+
+<div id="filesandfolder"  style="  display: grid;
+grid-template-columns: auto auto auto;
+
+padding: 10px;
+">
+<div *ngFor="let folder of folderlist" style=" background-color: rgba(255, 255, 255, 0.8);
+border: 1px solid rgba(0, 0, 0, 0.8);
+padding: 20px;
+font-size: 30px;
+text-align: center;" >
+<div>
+    <img style="width:100px" src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/folder-icon.png">
+    <br>
+    <a href="#" (click)="getlist(folder)">{{folder}}</a>
+</div>
+
+
+
+</div>
+<br>
+<div *ngFor="let thefile of filelist" style=" background-color: rgba(255, 255, 255, 0.8);
+border: 1px solid rgba(0, 0, 0, 0.8);
+padding: 20px;
+font-size: 30px;
+text-align: center;" >
+<div>
+    <img style="width:100px" src="https://img.icons8.com/cotton/2x/file.png">
+    <br>
+    <a href="#" (click)="download(thefile)">{{thefile}}</a>
+   
+
+
+</div>
+
+
+
+</div>
+</div>
+     
