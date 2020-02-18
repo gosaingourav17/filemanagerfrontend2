@@ -1,1 +1,16 @@
-<p>upload works!</p>
+
+
+<div id="uploaddiv">
+    <div class="topnav">
+        <form name="fileupload" (click)="AddCurdirUpload()" id="fileupload" action="http://localhost:3000/crud/upload" method="post"
+         enctype="multipart/form-data">
+            <h1>Upload File In Current Directory</h1>
+            <br/>
+            <input type="file" name="upfile" value="">
+            <input type="hidden" id="myField" name="curdirect" value="" />
+            <input type="submit" />
+        </form>
+
+
+    </div>
+</div>

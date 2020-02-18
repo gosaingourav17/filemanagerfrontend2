@@ -1,14 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {FileComponent} from '../file/file.component';
 import {  Renderer2, ViewChild, ElementRef } from '@angular/core';
-
+import { PathchangeService } from "../pathchange.service";
+import { GestionImputacionData } from '../gestion-impuctacion-data'
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
+  parte: GestionImputacionData;
+  cargar(parte: GestionImputacionData) {
+    this.parte = parte;
+    //more things
+    console.log('cargar in child Called with : ', parte.foo);
+    this.curdirect=parte.foo;
+    this.getlist()
+  }
 len1:number=0;
 len2:number=0;
 curdirect:string='';
@@ -16,7 +25,8 @@ showcurdirect:string='';
 folderlist:string[]=[];
 filelist:string[]=[];
 
-  constructor(private http: HttpClient,private renderer: Renderer2) { }
+
+  constructor(private http: HttpClient,private renderer: Renderer2,private data:  PathchangeService) { }
   getlist(x=''):void {
 console.log(x)
 this.folderlist=[];
@@ -27,8 +37,9 @@ this.len2=0;
     if (x.length > 0) { this.curdirect += '/' + x; }
     
     
-    this.showcurdirect= 'home' + this.curdirect;
-    
+   
+    this.data.changeMessage(this.curdirect)
+   console.log('curdirect',this.curdirect)
   
     this.http.get<any>("http://localhost:3000/crud/read/" + this.curdirect).subscribe(data => {
       this.len1 = data.directory.length;
@@ -70,10 +81,26 @@ this.len2=0;
     download(x) {
       window.location.href = 'http://localhost:3000/crud/download' + this.curdirect + '/' + x;
     }
+     delete(x) {
+       console.log('here1')
+       this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x}).subscribe(
+        (data: any[]) => {
+            console.log(data);
+        }
+      )
+     
+      
+     this.getlist('')
+       
+
+     }
+
+
   ngOnInit() {
   this.getlist();
+  this.data.currentMessage.subscribe(message => this.curdirect = message)
   }
-
+ 
 }
 
   

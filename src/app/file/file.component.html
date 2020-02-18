@@ -1,1 +1,9 @@
-<h1>check</h1>
+
+<form id="rename" name='rename'(click)="AddCurdirRename()" action="http://localhost:3000/crud/update" method="post">
+    <h1>From:</h1>
+    <input type="text" name="prev" value="">
+    <h1>To:</h1>
+    <input type="text" name="final" value="">
+    <input type="hidden" id="myField" name="curdirect" value="" />
+    <input  type="submit" />
+</form>

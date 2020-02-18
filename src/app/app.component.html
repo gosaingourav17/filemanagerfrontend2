@@ -1,7 +1,6 @@
-
-
 <div>
-  <app-main-nav> </app-main-nav>
+
+  <app-main-nav (messafeEvent)="recieveMessage($event)"  [master]="master"> </app-main-nav>
   <router-outlet></router-outlet>
  
 </div>

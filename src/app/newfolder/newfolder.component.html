@@ -1,1 +1,8 @@
-<p>newfolder works!</p>
+
+{{sub}}
+<form id="newfolder" name="newfolder" (click)="AddCurdirFormUpdate()" action="http://localhost:3000/crud/newfolder" method="post">
+    <h1>New Foldername:</h1>
+    <input type="text" name="newfoldername" value="">
+    <input type="hidden" id="myField" name="curdirect" value="" />
+    <input  type="submit" />
+</form>

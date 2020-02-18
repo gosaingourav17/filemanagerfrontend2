@@ -24,12 +24,12 @@
     <div>
       <div>Fileexplorer</div>
       <div style="position: absolute;
-      left: 35%; top:15px">Path:home/folder</div>
+      left: 35%; top:15px">Home{{masterName}}</div>
       <div style="position: absolute;
-      right: 5px; top:15px"><button>back</button></div>
+      right: 5px; top:15px"><button (click)="detalle({ foo:masterName.substring(0, this.masterName.lastIndexOf('/'))  })" (click)="sendMessage()">back</button></div>
     </div>
     </mat-toolbar>
     <router-outlet></router-outlet>
-    <app-collection></app-collection>
+    <app-collection ></app-collection>
   </mat-sidenav-content>
 </mat-sidenav-container>
