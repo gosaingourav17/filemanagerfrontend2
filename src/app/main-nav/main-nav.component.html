@@ -1,14 +1,26 @@
+
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Fileexplorer</mat-toolbar>
     <mat-nav-list>
       
      <!--<a mat-list-item routerLink="/" routerLinkActive="active">Files</a>--> 
-      <a mat-list-item routerLink="/upload" routerLinkActive="active">Upload</a>
+     <!--<a mat-list-item routerLink="/upload" routerLinkActive="active">Upload</a>--> 
+      <form name="fileupload" (click)="AddCurdirUpload()" id="fileupload" action="http://localhost:3000/crud/upload" method="post"
+         enctype="multipart/form-data">
+         <div class="file-upload">
+         <label for="upfile" class="file-upload__label">Upload</label>
+         <input  id="upfile" class="file-upload__input" type="file" name="upfile" value="" onchange="this.form.submit()" style="color:transparent; ">
+        </div>
+            <input type="hidden" id="myField" name="curdirect" value={{masterName}} />
+           
+        </form>
       <a mat-list-item routerLink="/newfolder" routerLinkActive="active">Newfolder</a>
+   >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +34,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     <div>
-      <div>Fileexplorer</div>
+      
       <div style="position: absolute;
       left: 35%; top:15px">Home{{masterName}}</div>
       <div style="position: absolute;

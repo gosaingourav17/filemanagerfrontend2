@@ -30,7 +30,14 @@ export class MainNavComponent {
     @Output() messageEvent=new EventEmitter<string>();
   constructor(private breakpointObserver: BreakpointObserver) {}
   @Input('master') masterName: string;
- 
+  //upload
+  AddCurdirUpload() {
+
+    document.forms["fileupload"]["curdirect"].value = this.masterName;
+    alert(this.masterName)
+    return true;
+}
+//end upload
 sendMessage(){
   if (this.masterName.length <= 1) {  }
 			else {

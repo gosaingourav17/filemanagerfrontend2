@@ -15,3 +15,47 @@
   top: 0;
   z-index: 1;
 }
+/*****************************************
+  upload button styles
+******************************************/
+.file-upload {
+	position: relative;
+	display: inline-block;
+}
+
+.file-upload__label {
+  display: block;
+  padding: 1em;
+  color: black;
+  background: white;
+  border-radius: 4em;
+  transition: background .3s;
+  
+
+}
+.file-upload__label:hover  {
+  display: block;
+  padding: 1em;
+  color: black;
+  background: lightgrey;
+  border-radius: 4em;
+  transition: background .3s;
+  
+
+}
+    
+.file-upload__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 1;
+    width:0;
+    height: 100%;
+    opacity: 0;
+}
+
+/*****************************************
+ design styles
+******************************************/

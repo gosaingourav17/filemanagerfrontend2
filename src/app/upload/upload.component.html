@@ -1,10 +1,17 @@
 
 
-<div id="uploaddiv">
+<div class="wrapper">
+  <div class="file-upload">
+   
+    <input type="file" />
+    <fa-icon [icon]="faArrowUp"></fa-icon>
+   
+  </div>
+</div>
     <div class="topnav">
         <form name="fileupload" (click)="AddCurdirUpload()" id="fileupload" action="http://localhost:3000/crud/upload" method="post"
          enctype="multipart/form-data">
-            <h1>Upload File In Current Directory</h1>
+            <h1 >Upload File In Current Directory</h1>
             <br/>
             <input type="file" name="upfile" value="">
             <input type="hidden" id="myField" name="curdirect" value="" />
@@ -13,4 +20,3 @@
 
 
     </div>
-</div>
