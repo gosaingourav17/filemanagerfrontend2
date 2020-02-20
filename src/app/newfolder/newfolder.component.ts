@@ -8,10 +8,17 @@ import { from } from 'rxjs';
 })
 export class NewfolderComponent implements OnInit {
 sub:string;
+toggle:number=1;
+change(){
+  if(this.toggle==1){
+    this.toggle=0;
+  }
+  else{ this.toggle=1;}
+}
 AddCurdirFormUpdate() {
   console.log('inupdate')
   document.forms["newfolder"]["curdirect"].value = this.sub;
-  alert(this.sub)
+  
   return true;
 }
   constructor(private data:  PathchangeService) { }

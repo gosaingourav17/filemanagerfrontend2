@@ -17,7 +17,7 @@ export class UploadComponent implements OnInit {
   AddCurdirUpload() {
 
     document.forms["fileupload"]["curdirect"].value = this.sub;
-    alert(this.sub)
+    
     return true;
 }
   ngOnInit() {
@@ -25,3 +25,6 @@ export class UploadComponent implements OnInit {
   }
 
 }
+
+
+ 

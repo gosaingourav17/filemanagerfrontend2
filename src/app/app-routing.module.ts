@@ -9,11 +9,13 @@ const routes: Routes = [
 {
   path: 'newfolder',
   component: NewfolderComponent,
-  data: { title: 'Heroes List' }
+  
 }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+ 
+}

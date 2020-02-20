@@ -34,7 +34,7 @@ export class MainNavComponent {
   AddCurdirUpload() {
 
     document.forms["fileupload"]["curdirect"].value = this.masterName;
-    alert(this.masterName)
+   
     return true;
 }
 //end upload

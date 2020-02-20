@@ -45,18 +45,7 @@ this.len2=0;
       this.len1 = data.directory.length;
       for (var i = 0; i < this.len1; i++) {
         this.folderlist.push(data.directory[i]);
-         // var iDiv = document.createElement('div');
-    
-         // iDiv.innerHTML = `<div style=" background-color: rgba(255, 255, 255, 0.8);
-          //border: 1px solid rgba(0, 0, 0, 0.8);
-          //padding: 20px;
-          //font-size: 30px;
-          //text-align: center;" ><div ><img style="width:100px" src="https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/folder-icon.png"><br>`+
-            //  `<a href="#" (click)="getlist()">`
-              //+ data.directory[i] + `</a>` +
-              //` <button onclick="delet('` + data.directory[i] + `')">Delete</button></div></div>`
-    
-          //document.getElementById("cardsdiv").appendChild(iDiv);
+       
          
       }
       this.len2 = data.fil.length
@@ -64,16 +53,7 @@ this.len2=0;
       
       for (i = 0; i < this.len2; i++) {
         this.filelist.push(data.fil[i]);
-          //var iDiv = document.createElement('div');
-    
-          //iDiv.innerHTML = `<div style=" background-color: rgba(255, 255, 255, 0.8);
-          //border: 1px solid rgba(0, 0, 0, 0.8);
-          //padding: 20px;
-          //font-size: 30px;
-          //text-align: center;"><div ><img style="width:100px" src="https://img.icons8.com/cotton/2x/file.png"><br>`
-            //  + data.fil[i] + ` <button onclick="delet('` + data.fil[i] + `')">Delete</button>
-      //<button onclick="download('` + data.fil[i] + `')">Download</button></div></div>`
-        //  document.getElementById("cardsdiv").appendChild(iDiv);
+         
       }
 })
   
@@ -82,7 +62,7 @@ this.len2=0;
       window.location.href = 'http://localhost:3000/crud/download' + this.curdirect + '/' + x;
     }
      delete(x) {
-       console.log('here1')
+       console.log('indelete',this.curdirect)
        this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x}).subscribe(
         (data: any[]) => {
             console.log(data);

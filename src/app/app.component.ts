@@ -8,7 +8,7 @@ import {PathchangeService} from './pathchange.service'
 export class AppComponent {
   constructor(private data: PathchangeService) { }
   title = 'fileexplorer';
-  master:string='abcd';
+  master:string='';
 
   ngOnInit() {
   
