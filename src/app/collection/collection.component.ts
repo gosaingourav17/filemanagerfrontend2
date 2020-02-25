@@ -4,6 +4,7 @@ import {FileComponent} from '../file/file.component';
 import {  Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { PathchangeService } from "../pathchange.service";
 import { GestionImputacionData } from '../gestion-impuctacion-data'
+import { catchError } from 'rxjs/operators';
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
@@ -61,20 +62,14 @@ this.len2=0;
     download(x) {
       window.location.href = 'http://localhost:3000/crud/download' + this.curdirect + '/' + x;
     }
+    
      delete(x) {
-       console.log('indelete',this.curdirect)
-       this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x}).subscribe(
-        (data: any[]) => {
-            console.log(data);
-        }
-      )
-     
-      
-     this.getlist('')
-       
-
-     }
-
+    
+      var obj = this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x})
+      obj.subscribe()
+      window.location.replace("http://localhost:4200")
+    }
+    
 
   ngOnInit() {
   this.getlist();
