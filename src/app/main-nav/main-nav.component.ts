@@ -3,13 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {CollectionComponent} from '../collection/collection.component';
-import { UploadComponent } from '../upload/upload.component';
-import { NewfolderComponent } from '../newfolder/newfolder.component';
-import {AppComponent} from '../app.component'
-import { ChildActivationEnd } from '@angular/router';
 import { GestionImputacionData } from '../gestion-impuctacion-data';
-// <ngbd-modal-component></ngbd-modal-component>
-import {NgbdModalComponent} from "../modal/modal.component"
+
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
@@ -40,6 +35,7 @@ export class MainNavComponent {
     return true;
 }
 //end upload
+//share currentdirectory state between components
 sendMessage(){
   if (this.masterName.length <= 1) {  }
 			else {

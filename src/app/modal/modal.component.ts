@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {NewfolderComponent} from '../newfolder/newfolder.component'
+//This modal uses newfolder component
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -33,6 +34,6 @@ export class NgbdModalComponent {
 
   open() {
     const modalRef = this.modalService.open(NewfolderComponent);
-    modalRef.componentInstance.name = 'me';
+    
   }
 }

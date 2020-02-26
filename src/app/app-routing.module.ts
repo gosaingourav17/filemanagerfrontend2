@@ -4,13 +4,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { UploadComponent } from './upload/upload.component';
 import { NewfolderComponent } from './newfolder/newfolder.component';
 import {AppComponent} from './app.component'
-const routes: Routes = [ 
-{ path: 'upload',      component:UploadComponent },
-{
-  path: 'newfolder',
-  component: NewfolderComponent,
-  
-}];
+const routes: Routes = [ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

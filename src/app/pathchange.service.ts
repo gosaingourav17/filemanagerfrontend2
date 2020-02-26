@@ -1,4 +1,4 @@
-
+//service to share directory
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
