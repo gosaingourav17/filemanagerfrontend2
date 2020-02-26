@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {CollectionComponent} from '../collection/collection.component';
-import { GestionImputacionData } from '../gestion-impuctacion-data';
+import { ServiceData } from '../service-data';
 
 @Component({
   selector: 'app-main-nav',
@@ -13,7 +13,7 @@ import { GestionImputacionData } from '../gestion-impuctacion-data';
 export class MainNavComponent {
   @ViewChild(CollectionComponent,{static: false}) child: CollectionComponent;
 
-  detalle(parte: GestionImputacionData) {
+  detalle(parte: ServiceData) {
    
     this.child.cargar(parte);
   }

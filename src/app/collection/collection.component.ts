@@ -1,9 +1,9 @@
 import { Component, OnInit,Output,EventEmitter  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {  Renderer2, ViewChild, ElementRef } from '@angular/core';
+import {  Renderer2 } from '@angular/core';
 import { PathchangeService } from "../pathchange.service";
-import { GestionImputacionData } from '../gestion-impuctacion-data'
-import { ActivatedRoute } from '@angular/router';
+import { ServiceData } from '../service-data'
+
 
 @Component({
   selector: 'app-collection',
@@ -11,10 +11,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
-  parte: GestionImputacionData;
-  cargar(parte: GestionImputacionData) {
-    this.parte = parte;
-    this.curdirect=parte.foo;
+  part: ServiceData;
+  cargar(part: ServiceData) {
+    this.part = part;
+    this.curdirect=part.foo;
     this.getlist()
   }
 len1:number=0;//number of folder
@@ -24,7 +24,7 @@ folderlist:string[]=[];//list of folders
 filelist:string[]=[];//list of files
 
 
-constructor(private http: HttpClient,private renderer: Renderer2,private data:  PathchangeService,private activatedRoute: ActivatedRoute) { }
+constructor(private http: HttpClient,private renderer: Renderer2,private data:  PathchangeService) { }
 //Getlist makes a get request to get names of files and folders in current directory
 getlist(x=''):void {
 
@@ -59,11 +59,14 @@ if (x.length > 0 ) {this.curdirect += '/'+x;}
     }
     //delete function
      delete(x) {
-    //  var obj = this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x})obj.subscribe()window.location.replace("http://localhost:4200/")
-      var deleteobject = { filetodelete: this.curdirect + '/' + x }
-      $.post("http://localhost:3000/crud/delete/", deleteobject, function () {
-      });
-      this.getlist()
+      var obj = this.http.post('http://localhost:3000/crud/delete/',{ filetodelete: this.curdirect + '/' + x})
+      obj.subscribe()
+      window.location.replace("http://localhost:4200/")
+     // var deleteobject = { filetodelete: this.curdirect + '/' + x }
+      //$.post("http://localhost:3000/crud/delete/", deleteobject, function () {
+        
+      //});
+      //this.getlist()
     }
     //get parameter from url
     getQueryVariable(variable) {
