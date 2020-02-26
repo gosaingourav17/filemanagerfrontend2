@@ -18,6 +18,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FileComponent } from './file/file.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalComponent, NgbdModalContent} from './modal/modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +28,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CollectionComponent,
     UploadComponent,
     NewfolderComponent,
-    FileComponent
-  ],
+    FileComponent,
+    NgbdModalComponent, NgbdModalContent
+  ],entryComponents: [NgbdModalComponent, NgbdModalContent,NewfolderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -40,8 +44,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    FontAwesomeModule
-  ],
+    FontAwesomeModule,NgbModule
+  ],  exports: [NgbdModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

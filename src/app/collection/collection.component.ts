@@ -4,7 +4,7 @@ import {FileComponent} from '../file/file.component';
 import {  Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { PathchangeService } from "../pathchange.service";
 import { GestionImputacionData } from '../gestion-impuctacion-data'
-import { catchError } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
@@ -25,9 +25,9 @@ curdirect:string='';
 showcurdirect:string='';
 folderlist:string[]=[];
 filelist:string[]=[];
+test:string='';
 
-
-  constructor(private http: HttpClient,private renderer: Renderer2,private data:  PathchangeService) { }
+  constructor(private http: HttpClient,private renderer: Renderer2,private data:  PathchangeService,private activatedRoute: ActivatedRoute) { }
   getlist(x=''):void {
 console.log(x)
 this.folderlist=[];
@@ -70,9 +70,22 @@ this.len2=0;
       window.location.replace("http://localhost:4200")
     }
     
-
+    GetURLParameter(sParam)
+    {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++) 
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) 
+            {
+                return sParameterName[1];
+            }
+        }
+    }​
   ngOnInit() {
-  this.getlist();
+  this.getlist(this.GetURLParameter('location'));
+ console.log(this.GetURLParameter('location'))
   this.data.currentMessage.subscribe(message => this.curdirect = message)
   }
  

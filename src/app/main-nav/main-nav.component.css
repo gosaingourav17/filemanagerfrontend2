@@ -7,13 +7,15 @@
 }
 
 .sidenav .mat-toolbar {
-  background: inherit;
+  background: #673AB7;
+  color:white
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
+ 
 }
 /*****************************************
   upload button styles
@@ -25,22 +27,29 @@
 
 .file-upload__label {
   display: block;
-  padding: 1em;
-  color: black;
-  background: white;
-  border-radius: 4em;
-  transition: background .3s;
   
+  width: 101px;
+  padding: 2px 3px;
+  color: #007bff;
+  background: white;
+  border: 1px solid #007bff;
+  transition: background .3s;
+  border-radius: 5px;
+	position: relative;
+  z-index: 1;
+  padding-left:12px
 
 }
 .file-upload__label:hover  {
   display: block;
-  padding: 1em;
-  color: black;
-  background: lightgrey;
-  border-radius: 4em;
+  width: 101px;
+  padding: 2px 3px;
+  color: white;
+  border-radius: 5px;
+  background: #007bff;
+  border: 1px solid #007bff;
   transition: background .3s;
-  
+  padding-left:12px
 
 }
     

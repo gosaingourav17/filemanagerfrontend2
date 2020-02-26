@@ -8,6 +8,8 @@ import { NewfolderComponent } from '../newfolder/newfolder.component';
 import {AppComponent} from '../app.component'
 import { ChildActivationEnd } from '@angular/router';
 import { GestionImputacionData } from '../gestion-impuctacion-data';
+// <ngbd-modal-component></ngbd-modal-component>
+import {NgbdModalComponent} from "../modal/modal.component"
 @Component({
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
