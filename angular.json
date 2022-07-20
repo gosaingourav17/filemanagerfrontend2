@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "fileexplorer"
+  "defaultProject": "fileexplorer",
+  "cli": {
+    "analytics": "82794fa0-7af0-4578-9302-4ca1fe67814d"
+  }
 }
